@@ -19,6 +19,8 @@ func main(){
 	priv_key_str := wallet.ToPrivateKey()
 	wif := wallet.ToWIF()
 	wifc := wallet.ToWIFCompressed()
+	bip38 := wallet.ToBip38Encrypt("hahaha")
+	decode_bip38 := Bip38Decrypt(bip38, "hahaha")
 
 	fmt.Printf("address compressed         :%s\n", address_compress)
 	fmt.Printf("address                    :%s\n", address)
@@ -27,4 +29,6 @@ func main(){
 	fmt.Printf("private key                :%s\n", priv_key_str)
 	fmt.Printf("wif                        :%s\n", wif)
 	fmt.Printf("wif compressed             :%s\n", wifc)
+	fmt.Printf("bip38                      :%s\n", bip38)
+	fmt.Printf("decode_bip38               :%s\n", decode_bip38)
 }
