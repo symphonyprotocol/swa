@@ -115,7 +115,7 @@ func newEntropy(size int)([]byte, error){
 }
 
 func checkMnemonic(mnemonic string) error{
-	if !isMnemonicValid(mnemonic) {
+	if !IsMnemonicValid(mnemonic) {
 		return fmt.Errorf("invalid menomic string")
 	}
 
@@ -175,7 +175,8 @@ func NewSeed(mnemonic string, pwd string) (seed []byte, e error){
 	return seed, nil
 }
 
-func isMnemonicValid(mnemonic string) bool {
+// 验证助记词是否数量合法且在助记词单词列表中
+func IsMnemonicValid(mnemonic string) bool {
 	words := strings.Fields(mnemonic)
 	wordCount := len(words)
 	if wordCount%3 != 0 || wordCount < 12 || wordCount > 24 {
