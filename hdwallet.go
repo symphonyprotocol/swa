@@ -1,9 +1,9 @@
 package main
 
-import hd "wallet/hdkeychain"
-import ec "wallet/elliptic"
+import hd "github.com/symphonyprotocol/sutil/hdkeychain"
+import ec "github.com/symphonyprotocol/sutil/elliptic"
 import "fmt"
-import bip39 "wallet/bip39"
+import bip39 "github.com/symphonyprotocol/sutil/bip39"
 import "strings"
 import "math/big"
 import "math"
@@ -28,6 +28,7 @@ func newWallet(seed []byte) (*Wallet, error) {
 }
 
 func NewFromMnemonic(mnemonic string, pwd string) (*Wallet, error) {
+	bip39.SetWordList(bip39.English)
 	if mnemonic == "" {
 		return nil, fmt.Errorf("mnemonic is required")
 	}
