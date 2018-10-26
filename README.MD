@@ -25,7 +25,7 @@ go build -o swa *.go
 Mnemonic is: orphan sentence network gun purpose toe wolf bulk another slide involve mercy
 ```
 
-####从助记词生成主公钥和主私钥
+#### 从助记词生成主公钥和主私钥
 
 **-m**： 指定助记词
 **-p**:     助记词的脑密码
