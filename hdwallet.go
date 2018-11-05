@@ -27,6 +27,10 @@ func newWallet(seed []byte) (*Wallet, error) {
 	return &wallet, nil
 }
 
+func (w *Wallet)GetMasterKey() *hd.ExtendedKey{
+	return w.masterKey
+}
+
 func NewFromMnemonic(mnemonic string, pwd string) (*Wallet, error) {
 	bip39.SetWordList(bip39.English)
 	if mnemonic == "" {
