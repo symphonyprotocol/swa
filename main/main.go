@@ -1,19 +1,19 @@
 package main
 
-import (
+// import (
 	// "bytes"
 	// "compress/zlib"
 	// "encoding/base64"
 	// "fmt"
 	// "log"
 	// "os"
-)
+// )
 // import  "github.com/symphonyprotocol/sutil/utils"
 // import "github.com/symphonyprotocol/sutil/hdkeychain"
-
+import "github.com/symphonyprotocol/swa"
 
 func main(){
-	cli := CLI{}
+	cli := swa.CLI{}
 	cli.Run()
 	// mnemonic, err := GenMnemonic()
 	// fmt.Print(mnemonic)

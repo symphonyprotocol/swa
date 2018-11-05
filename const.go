@@ -1,4 +1,4 @@
-package main
+package swa
 
 const(
 	WIF_VERSION = 0x80

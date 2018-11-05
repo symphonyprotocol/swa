@@ -1,4 +1,4 @@
-package main
+package swa
 
 import hd "github.com/symphonyprotocol/sutil/hdkeychain"
 import ec "github.com/symphonyprotocol/sutil/elliptic"

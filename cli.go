@@ -1,4 +1,4 @@
-package main
+package swa
 
 import "flag"
 import "log"
