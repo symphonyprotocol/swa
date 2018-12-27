@@ -8,14 +8,15 @@ import "github.com/symphonyprotocol/sutil/utils"
 
 type CLI struct{}
 
-func (cli *CLI) createMnemonic(){
+func (cli *CLI) CreateMnemonic() string{
 	mnemonic, err := GenMnemonic()
 	if err != nil{
 		log.Panic(err)
 	}
 	fmt.Printf("Mnemonic is: %s\n", mnemonic)
+	return mnemonic
 } 
-func (cli *CLI) getKey(mnemonic string, pwd string){
+func (cli *CLI) GetKey(mnemonic string, pwd string){
 	wallet, _ := NewFromMnemonic(mnemonic, pwd)
 	master_private, _ := wallet.masterKey.ECPrivKey()
 	master_public, _ := wallet.masterKey.ECPubKey()
@@ -44,7 +45,7 @@ func (cli *CLI) getKey(mnemonic string, pwd string){
 
 }
 
-func (cli *CLI) deriveKey(mnemonic string, pwd string, path string){
+func (cli *CLI) DeriveKey(mnemonic string, pwd string, path string){
 	wallet, _ := NewFromMnemonic(mnemonic, pwd)
 	pri, pub, _ := wallet.DeriveKey(path)
 	pub_bytes_compressed := pub.SerializeCompressed()
@@ -102,20 +103,20 @@ func (cli *CLI) Run() {
 	}
 
 	if createMnemonicCmd.Parsed(){
-		cli.createMnemonic()
+		cli.CreateMnemonic()
 	}
 	if getkeyCmd.Parsed() {
 		if *getkeyMnemonic == "" {
 			getkeyCmd.Usage()
 			os.Exit(1)
 		}
-		cli.getKey(*getkeyMnemonic, *getkeypwd)
+		cli.GetKey(*getkeyMnemonic, *getkeypwd)
 	}
 	if deriveKeyCmd.Parsed() {
 		if *deriveKeyMnemonic == "" ||  *deriveKeyPath == ""{
 			deriveKeyCmd.Usage()
 			os.Exit(1)
 		}
-		cli.deriveKey(*deriveKeyMnemonic, *deriveKeypwd, *deriveKeyPath)
+		cli.DeriveKey(*deriveKeyMnemonic, *deriveKeypwd, *deriveKeyPath)
 	}
 }
