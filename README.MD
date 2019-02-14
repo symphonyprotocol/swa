@@ -1,23 +1,25 @@
-## HD(分层确定)钱包
-**本代码基于BIP0032开发分层确定性钱包。**
-**确定性钱包被开发成更容易从单个“种子”中生成许多密钥。**
+## HD Wallet
+**Base BIP0032**
+**HD Wallet derivations from mnemonic seed.  master key can be derive child key from given path.**
+**Path: Path should start with the `m/` prefix, for example, to derive the first child account, the path will be "m/0"**
+**if path with `'` , it will be hardened path, hardened key can be derive only using the private key or his parent key**
 
-### 安装
+### Install
 
 ```
 go get github.com/symphonyprotocol/swa
 ```
 
-### 编译
+### Compile
 
 ```
 go build -o swa *.go
 ```
 
-### 使用
+### How to use
 
 
-  #### 生成助记词
+  #### Generate memonic
  
 
 ```
@@ -25,10 +27,10 @@ go build -o swa *.go
 Mnemonic is: orphan sentence network gun purpose toe wolf bulk another slide involve mercy
 ```
 
-#### 从助记词生成主公钥和主私钥
+#### Get Master Public key and Master Private key from mnemonic words
 
-**-m**： 指定助记词
-**-p**:     助记词的脑密码
+**-m**： mnemonic words
+**-p**:     your password
 
 ```
 ➜  swa git:(dev) ✗ ./swa getkey -m "orphan sentence network gun purpose toe wolf bulk another slide involve mercy" -p "User@123"
@@ -41,14 +43,14 @@ master private key wif compressed      :L5fR7FRHnZGL3DjsrhN8CvBYHpywL8LjxA2rjzbL
 master private key str                 :FBEC50438CFD849DEE6EBEDDA98217EA75ACD06E27569571CB0D54446A392EFB
 ```
 
-####  推导秘钥
+#### Derive Key
 
-**-m**： 指定助记词
-**-pwd**:     助记词的脑密码
-**-path**: 推导路径
+**-m**： mnemonic words
+**-pwd**:     your password
+**-path**: derivations path
 
 
-**例如**，推导主秘钥的第一层子秘钥
+**examples**，derive the first child key from master key
 
 ```
 ➜  swa git:(dev) ✗ ./swa derivekey -m "orphan sentence network gun purpose toe wolf bulk another slide involve mercy" -pwd "User@123" -path "m/0"
