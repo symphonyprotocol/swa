@@ -62,3 +62,6 @@ derive private key wif                 :5J1s8thMpkzgUyKATYNTo71d4xRSHoKGYSXcCnBL
 derive private key wif compressed      :Kx6pHqB8uoBbGTZAk9TjGVXkCTcrd9Rdbmg6NzQfA6uA4FHb11Rk
 derive private key str                 :1A4A5DC3FB04031D91A468869184DFFAFFB4FD15282D050948197DF93913D959
 ```
+### Module Support
+
+* In progress 
